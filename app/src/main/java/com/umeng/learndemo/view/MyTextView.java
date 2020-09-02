@@ -1,4 +1,4 @@
-package com.umeng.learndemo;
+package com.umeng.learndemo.view;
 
 import android.content.Context;
 import android.graphics.Rect;

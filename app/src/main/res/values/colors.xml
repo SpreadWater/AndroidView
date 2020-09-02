@@ -3,4 +3,6 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="holo_purple">#ffaa66cc</color>
+    <color name="holo_purple2">#FF6347</color>
 </resources>
