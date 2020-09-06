@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.umeng.learndemo.view.ClipRgnView
+    <com.umeng.learndemo.view.BasisView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

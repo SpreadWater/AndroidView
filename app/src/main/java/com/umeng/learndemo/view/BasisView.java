@@ -38,7 +38,7 @@ class BasisView extends View {
 
         //------------------------>9月6日，Region中op操作学习demo
 
-//        //设置画笔的基础属性
+        //设置画笔的基础属性
 //        Paint paint = new Paint();
 //        paint.setColor(Color.RED);//设置画笔的颜色
 //        paint.setStyle(Paint.Style.STROKE);//设置填充样式
@@ -92,17 +92,56 @@ class BasisView extends View {
 //        canvas.drawColor(Color.GREEN);
 
         //------------------------>9月6日save()and restore()函数学习demo
-            canvas.drawColor(Color.RED);
-            //保存当前画布的大小，即整屏
-            canvas.save();
+//            canvas.drawColor(Color.RED);
+//            //保存当前画布的大小，即整屏
+//            canvas.save();
+//
+//
+//            canvas.clipRect(new Rect(100,100,800,800));
+//            canvas.drawColor(Color.GREEN);
+//            //恢复整平画布
+//            canvas.restore();
+//
+//            canvas.drawColor(Color.BLUE);
+
+        //------------------------>9月6日Path中CCW和CW，根据路径生成方向来布局文字
+
+            //第一条路径逆向生成
+//            Path CCWRectpath=new Path();
+//            RectF rect1=new RectF(50,50,240,200);
+//            CCWRectpath.addRect(rect1,Path.Direction.CCW);
+//
+//            //第二条路径顺向生成
+//            Path CwRectpath=new Path();
+//            RectF rect2=new RectF(290,50,480,200);
+//            CwRectpath.addRect(rect2,Path.Direction.CW);
+//
+//            //先画出这两天路径
+//            canvas.drawPath(CCWRectpath,paint);
+//            canvas.drawPath(CwRectpath,paint);
+//            //依据路径布局文字
+//            String text="苦心人天不负，有志者事竟成";
+//            paint.setColor(Color.GREEN);
+//            paint.setTextSize(35);
+//            canvas.drawTextOnPath(text,CCWRectpath,0,18,paint);//逆时针方向生成文字
+//            canvas.drawTextOnPath(text,CwRectpath,0,18,paint);//顺时针方向生成文字
 
 
-            canvas.clipRect(new Rect(100,100,800,800));
-            canvas.drawColor(Color.GREEN);
-            //恢复整平画布
-            canvas.restore();
+        //------------------------>9月6日path的填充模式测试
+        
+        Paint paint=new Paint();
+        paint.setColor(Color.RED);
+        paint.setStyle(Paint.Style.FILL);
 
-            canvas.drawColor(Color.BLUE);
+        Path path=new Path();
+        path.addRect(100,100,300,300,Path.Direction.CW);
+        path.addCircle(300,300,100,Path.Direction.CW);
+//        path.setFillType(Path.FillType.WINDING);//两个图形相交时，取相交的部分
+//        path.setFillType(Path.FillType.EVEN_ODD);//取path所在，并不相交的部分
+//        path.setFillType(Path.FillType.INVERSE_EVEN_ODD);//取path所在，并不相交的相反的部分
+        path.setFillType(Path.FillType.INVERSE_WINDING);//取相交的相反的部分
+        canvas.drawPath(path,paint);
+
     }
     //方便Region学习的画出区域
     private void drawRegion(Canvas canvas,Region region,Paint paint){
