@@ -1,6 +1,7 @@
 package com.umeng.learndemo.view;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -9,6 +10,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Region;
 import android.graphics.RegionIterator;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -20,17 +22,14 @@ import androidx.annotation.Nullable;
  * @description
  */
 class BasisView extends View {
-    public BasisView(Context context) {
-        super(context);
-    }
+    private Context mContext;
 
+    //xml文件引用必须重写的构造方法
     public BasisView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        mContext=context;
     }
 
-    public BasisView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -128,19 +127,99 @@ class BasisView extends View {
 
 
         //------------------------>9月6日path的填充模式测试
-        
-        Paint paint=new Paint();
-        paint.setColor(Color.RED);
-        paint.setStyle(Paint.Style.FILL);
 
-        Path path=new Path();
-        path.addRect(100,100,300,300,Path.Direction.CW);
-        path.addCircle(300,300,100,Path.Direction.CW);
+//        Paint paint=new Paint();
+//        paint.setColor(Color.RED);
+//        paint.setStyle(Paint.Style.FILL);
+//
+//        Path path=new Path();
+//        path.addRect(100,100,300,300,Path.Direction.CW);
+//        path.addCircle(300,300,100,Path.Direction.CW);
 //        path.setFillType(Path.FillType.WINDING);//两个图形相交时，取相交的部分
 //        path.setFillType(Path.FillType.EVEN_ODD);//取path所在，并不相交的部分
 //        path.setFillType(Path.FillType.INVERSE_EVEN_ODD);//取path所在，并不相交的相反的部分
-        path.setFillType(Path.FillType.INVERSE_WINDING);//取相交的相反的部分
-        canvas.drawPath(path,paint);
+//        path.setFillType(Path.FillType.INVERSE_WINDING);//取相交的相反的部分
+//        canvas.drawPath(path,paint);
+
+        //------------------------>9月7日文字方面的学习demo
+
+        Paint paint=new Paint();
+        paint.setColor(Color.RED);//设置画笔的颜色
+//        paint.setStrokeWidth(5);//设置画笔的宽度
+//        paint.setAntiAlias(true);//设置是否使用抗锯齿功能。如果使用，则会使绘图速度变慢
+        paint.setTextSize(50);//设置文字的大小
+
+//        paint.setStyle(Paint.Style.FILL);
+//        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+//        paint.setStyle(Paint.Style.STROKE);
+//        paint.setTextAlign(Paint.Align.LEFT);
+//        paint.setTextAlign(Paint.Align.RIGHT);
+//        paint.setTextAlign(Paint.Align.CENTER);
+//        paint.setFakeBoldText(true);//设置成粗体
+//        paint.setUnderlineText(true);//设置文字的下划线效果
+//        paint.setStrikeThruText(true);//设置带有删除线的效果
+
+//        //正常样式
+////        canvas.drawText("床前明月光",20,100,paint);
+////
+////        //向右倾斜
+////        paint.setTextSkewX(-0.25f);
+////        canvas.drawText("床前明月光",20,200,paint);
+////
+////        //向左倾斜
+////        paint.setTextSkewX(0.25f);
+////        canvas.drawText("床前明月光",20,300,paint);
+
+//        //正常样式
+//        canvas.drawText("床前明月光",20,100,paint);
+//        //水平拉伸两倍
+//        paint.setTextScaleX(2);
+//        canvas.drawText("床前明月光",20,200,paint);
+
+//        //文字的截取
+//        canvas.drawText("床前明月光",2,4,20,300,paint);
+
+        //逐个指定文字位置（目前已经不可用）
+//        float []pos=new float[]{80,100,80,200,80,300,80,400};//每个文字的位置
+//        canvas.drawPosText("床前明月光",pos,paint);
+
+        //沿路径绘制
+
+        //先创建两条相同的圆形路径，并画出两条路径原形
+//        Path circlepath=new Path();
+//        circlepath.addCircle(220,300,150,Path.Direction.CCW);//逆向绘制
+//        canvas.drawPath(circlepath,paint);
+//
+//        Path circlepath2=new Path();
+//        circlepath2.addCircle(600,300,150,Path.Direction.CCW);//顺向绘制
+//        canvas.drawPath(circlepath2,paint);
+//
+//        //绘制原始文字和偏移文字
+//        String text="床前明月光";
+//        paint.setColor(Color.GREEN);
+//        //hOffset（与路径起始点的水平偏移）,vOffset(与路径中心的垂直偏移量)参数全部设置为0，查看最初的模式是什么样子的
+//        canvas.drawTextOnPath(text,circlepath,0,0,paint);
+//        //第二条路径
+//        canvas.drawTextOnPath(text,circlepath2,80,30,paint);
+
+
+        //设置字体的样式
+//        Typeface typeface=Typeface.defaultFromStyle(Typeface.ITALIC);//黑粗斜体
+//        paint.setTypeface(typeface);
+//        String familyname="宋体";
+//        Typeface typeface=Typeface.create(familyname,Typeface.NORMAL);
+//        paint.setTypeface(typeface);
+//        canvas.drawText("床前明月光",10,100,paint);
+
+        //自定义文字体样式
+        AssetManager assetManager=mContext.getAssets();
+        //根据路径得到Typeface
+        Typeface typeface=Typeface.createFromAsset(assetManager,"fonts/jian_luobo.ttf");
+        paint.setTypeface(typeface);
+        canvas.drawText("床前明月光，疑是地上霜",10,100,paint);
+
+        //------------------------>9月7日控件的使用demo
+
 
     }
     //方便Region学习的画出区域
