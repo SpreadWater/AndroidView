@@ -1,5 +1,6 @@
 package com.umeng.learndemo;
 
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -18,19 +19,21 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
     //9月8日动画学习demo
 public class MainActivity extends AppCompatActivity {
-
+    private TextView tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tv=(TextView)findViewById(R.id.tv);
         findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final TextView tv=(TextView)findViewById(R.id.tv);
+//                final TextView tv=(TextView)findViewById(R.id.tv);
                 //--------->9月8日动画学习demo伸缩变化的类
 //                ScaleAnimation animation= new ScaleAnimation(0.0f,1.4f,0.0f,1.4f,
 //                        Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
@@ -90,10 +93,35 @@ public class MainActivity extends AppCompatActivity {
 //                animation.setDuration(3000);
 //                animation.setFillBefore(true);
 //                animation.setInterpolator(new LinearInterpolator());
-                Animation animation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.translateanim);
-                animation.setInterpolator(new CycleInterpolator(1));
-                tv.startAnimation(animation);
+//                Animation animation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.translateanim);
+//                animation.setInterpolator(new CycleInterpolator(1));
+//                tv.startAnimation(animation);
+
+                //--------------------->9月9日属性动画demo
+                doAnimation();
             }
         });
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "clicked me ", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void doAnimation(){
+        ValueAnimator animator=ValueAnimator.ofInt(0,400);
+        animator.setDuration(1000);
+
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int curValue=(Integer)animation.getAnimatedValue();//获取ValueAnimatro在当前运动点的值
+                tv.layout(tv.getLeft(),curValue,tv.getRight(),curValue+tv.getHeight());
+                //控件通过layout函数来设置（left,top,right,bottom）位置，形成动画.实际的移动控件.
+            }
+        });
+        animator.setRepeatMode(ValueAnimator.REVERSE);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.start();
     }
 }

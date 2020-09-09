@@ -7,12 +7,13 @@
         android:id="@+id/btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="startAnim"/>
+        android:padding="10dp"
+        android:text="start anim"/>
     <TextView
         android:id="@+id/tv"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@android:color/darker_gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#ffff00"
         android:text="Hello World"/>
 </LinearLayout>
