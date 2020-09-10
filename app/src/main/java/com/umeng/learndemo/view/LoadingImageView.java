@@ -14,12 +14,13 @@ import com.umeng.learndemo.R;
 /**
  * @author zhangsan
  * @date
- * @description
+ * @description 9月9日弹簧加载中动画自定义的imageview
  */
 public class LoadingImageView extends androidx.appcompat.widget.AppCompatImageView {
-    private  int mTop;
-    private int mCurImgIndex=0;//当前图片的索引
-    private static  int mImgCount=3;//动画图片的总张数
+    private int mTop;
+    private int mCurImgIndex = 0;//当前图片的索引
+    private static int mImgCount = 3;//动画图片的总张数
+
     public LoadingImageView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
@@ -28,24 +29,23 @@ public class LoadingImageView extends androidx.appcompat.widget.AppCompatImageVi
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        mTop=top;
+        mTop = top;
     }
 
-    private void init(){
-        ValueAnimator valueAnimator=ValueAnimator.ofInt(0,100,0);
+    private void init() {
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 100, 0);
         valueAnimator.setRepeatMode(ValueAnimator.RESTART);
         valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
         valueAnimator.setDuration(2000);
         valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-
-       valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-           @Override
-           public void onAnimationUpdate(ValueAnimator animation) {
-               Integer dx=(Integer)animation.getAnimatedValue();
-               setTop(mTop-dx);
-           }
-       });
-       //监听动画的重复和开始
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                Integer dx = (Integer) animation.getAnimatedValue();
+                setTop(mTop - dx);
+            }
+        });
+        //监听动画的重复和开始
         valueAnimator.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
@@ -65,7 +65,7 @@ public class LoadingImageView extends androidx.appcompat.widget.AppCompatImageVi
             @Override
             public void onAnimationRepeat(Animator animation) {
                 mCurImgIndex++;
-                switch (mCurImgIndex%mImgCount){
+                switch (mCurImgIndex % mImgCount) {
                     case 0:
                         setImageDrawable(getResources().getDrawable(R.drawable.pic_1));
                         break;
