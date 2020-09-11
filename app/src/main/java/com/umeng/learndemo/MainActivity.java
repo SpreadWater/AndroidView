@@ -3,9 +3,12 @@ package com.umeng.learndemo;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
+import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.graphics.Point;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -35,18 +38,19 @@ import com.umeng.learndemo.interpolator.MyInterpolator;
 
 //9月8日动画学习demo
 public class MainActivity extends AppCompatActivity {
-        private TextView tv1;
-        private TextView tv2;
+//        private TextView tv1;
+//        private TextView tv2;
 //    private ImageView ballimg;
-
+    private ImageView phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        tv1 = (TextView) findViewById(R.id.tv1);
-        tv2 = (TextView) findViewById(R.id.tv2);
+        setContentView(R.layout.activity_phone);
+//        tv1 = (TextView) findViewById(R.id.tv1);
+//        tv2 = (TextView) findViewById(R.id.tv2);
 //        ballimg=(ImageView)findViewById(R.id.ball_img);
-        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
+        phone=(ImageView)findViewById(R.id.img_phone);
+        findViewById(R.id.start_phone_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                final TextView tv=(TextView)findViewById(R.id.tv);
@@ -179,17 +183,54 @@ public class MainActivity extends AppCompatActivity {
 //            animator.start();
 
             //--------------------------->9月10日ObjectAnimator ,AnimatorSet.学习demo
-            ObjectAnimator tv1BgAnimator=ObjectAnimator.ofInt(tv1,"BackgroundColor"
-                    ,0xffff00ff,0xffffff00,0xffff00ff);
-            ObjectAnimator tv1TranslateY=ObjectAnimator.ofFloat(tv1,"translationY",0,300,0);
-            ObjectAnimator tv2TranslateY=ObjectAnimator.ofFloat(tv2,"translationY",0,400,0);
-            AnimatorSet animatorSet=new AnimatorSet();
-//            animatorSet.playTogether(tv1BgAnimator,tv1TranslateY,tv2TranslateY);
-            animatorSet.play(tv1TranslateY).with(tv2TranslateY).after(tv1BgAnimator);//after表示在after里面的动画播放完成后再进行play/play，with
-            //before表示在before里面的动画播放之前进行play/play with动画.
+//            ObjectAnimator tv1BgAnimator=ObjectAnimator.ofInt(tv1,"BackgroundColor"
+//                    ,0xffff00ff,0xffffff00,0xffff00ff);
+//            ObjectAnimator tv1TranslateY=ObjectAnimator.ofFloat(tv1,"translationY",0,300,0);
+//            ObjectAnimator tv2TranslateY=ObjectAnimator.ofFloat(tv2,"translationY",0,400,0);
+//            AnimatorSet animatorSet=new AnimatorSet();
+////            animatorSet.playTogether(tv1BgAnimator,tv1TranslateY,tv2TranslateY);
+//            animatorSet.play(tv1TranslateY).with(tv2TranslateY).after(tv1BgAnimator);//after表示在after里面的动画播放完成后再进行play/play，with
+//            //before表示在before里面的动画播放之前进行play/play with动画.
+//
+//            //添加AnimatorSet的监听器是用来监听AnimatorSet的，不监听里面添加的动画
+//            animatorSet.setDuration(3000);
+//            animatorSet.start();
 
-            //添加AnimatorSet的监听器是用来监听AnimatorSet的，不监听里面添加的动画
-            animatorSet.setDuration(3000);
-            animatorSet.start();
+
+            //----------------------------------->9月11日keyframe学习demo笔记
+            Keyframe frame0=Keyframe.ofFloat(0f,0);
+            Keyframe frame1=Keyframe.ofFloat(0.1f,-20f);
+            Keyframe frame2=Keyframe.ofFloat(0.2f,20f);
+            Keyframe frame3=Keyframe.ofFloat(0.3f,-20f);
+            Keyframe frame4=Keyframe.ofFloat(0.4f,20f);
+            Keyframe frame5=Keyframe.ofFloat(0.5f,-20f);
+            Keyframe frame6=Keyframe.ofFloat(0.6f,20f);
+            Keyframe frame7=Keyframe.ofFloat(0.7f,-20f);
+            Keyframe frame8=Keyframe.ofFloat(0.8f,20f);
+            Keyframe frame9=Keyframe.ofFloat(0.9f,-20f);
+            Keyframe frame10=Keyframe.ofFloat(1,0);
+
+            PropertyValuesHolder framHolder=PropertyValuesHolder.ofKeyframe("rotation",frame0,frame1,frame2,
+                    frame3,frame4,frame5,frame6,frame7,frame8,frame9,frame10);
+            //x轴上放大的关键帧
+            Keyframe scaleXframe0=Keyframe.ofFloat(0f,1);
+            Keyframe scaleXframe1=Keyframe.ofFloat(0.1f,1.1f);
+            Keyframe scaleXframe9=Keyframe.ofFloat(0.9f,1.1f);
+            Keyframe scaleXframe10=Keyframe.ofFloat(1,1);
+
+            PropertyValuesHolder framHolder2=PropertyValuesHolder.ofKeyframe("ScaleX",scaleXframe0
+            ,scaleXframe1,scaleXframe9,scaleXframe10);
+            //Y轴上放大的关键帧
+            Keyframe scaleYframe0=Keyframe.ofFloat(0f,1);
+            Keyframe scaleYframe1=Keyframe.ofFloat(0.1f,1.1f);
+            Keyframe scaleYframe9=Keyframe.ofFloat(0.9f,1.1f);
+            Keyframe scaleYframe10=Keyframe.ofFloat(1,1);
+
+            PropertyValuesHolder framHolder3=PropertyValuesHolder.ofKeyframe("ScaleY",scaleYframe0
+                    ,scaleYframe1,scaleYframe9,scaleYframe10);
+
+            ObjectAnimator animator=ObjectAnimator.ofPropertyValuesHolder(phone,framHolder,framHolder2,framHolder3);
+            animator.setDuration(1000);
+            animator.start();
         }
 }
