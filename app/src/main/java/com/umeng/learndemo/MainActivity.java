@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.Keyframe;
+import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
@@ -11,6 +12,7 @@ import android.graphics.Point;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
@@ -26,7 +28,9 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,19 +42,31 @@ import com.umeng.learndemo.interpolator.MyInterpolator;
 
 //9月8日动画学习demo
 public class MainActivity extends AppCompatActivity {
-//        private TextView tv1;
+    //        private TextView tv1;
 //        private TextView tv2;
 //    private ImageView ballimg;
-    private ImageView phone;
+//    private ImageView phone;
+    private int i;//记录添加的控件个数
+    private LinearLayout linearLayoutContainer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phone);
+        setContentView(R.layout.activity_animatelayoutchages);
 //        tv1 = (TextView) findViewById(R.id.tv1);
 //        tv2 = (TextView) findViewById(R.id.tv2);
 //        ballimg=(ImageView)findViewById(R.id.ball_img);
-        phone=(ImageView)findViewById(R.id.img_phone);
-        findViewById(R.id.start_phone_btn).setOnClickListener(new View.OnClickListener() {
+//        phone=(ImageView)findViewById(R.id.img_phone);
+        linearLayoutContainer = (LinearLayout) findViewById(R.id.linearlayoutcontainer);
+        LayoutTransition transition=new LayoutTransition();
+        //入场动画，view在这个容器中出现时触发的动画
+        ObjectAnimator animIn=ObjectAnimator.ofFloat(null,"rotationY",0f,360f,0f);
+        transition.setAnimator(LayoutTransition.APPEARING,animIn);
+        //消失动画，view在这个容器中消失时触发的动画
+        ObjectAnimator animOut=ObjectAnimator.ofFloat(null,"rotation",0f,90f,0f);
+        transition.setAnimator(LayoutTransition.DISAPPEARING,animOut);
+
+        linearLayoutContainer.setLayoutTransition(transition);
+        findViewById(R.id.add_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                final TextView tv=(TextView)findViewById(R.id.tv);
@@ -118,7 +134,8 @@ public class MainActivity extends AppCompatActivity {
 //                tv.startAnimation(animation);
 
                 //--------------------->9月9日属性动画demo
-                doAnimation();
+//                doAnimation();
+                addButtonView();
             }
         });
 //        tv.setOnClickListener(new View.OnClickListener() {
@@ -127,9 +144,15 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(MainActivity.this, "clicked me ", Toast.LENGTH_SHORT).show();
 //            }
 //        });
+        findViewById(R.id.remove_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeButtonView();
+            }
+        });
     }
-        private void doAnimation () {
-            //-------------------->9月9日Evalutaor，Interpolator学习demo
+    private void doAnimation() {
+        //-------------------->9月9日Evalutaor，Interpolator学习demo
 
 //        ValueAnimator animator=ValueAnimator.ofInt(0,400);
 //        animator.setDuration(1000);
@@ -156,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
 //        animator.setEvaluator(new MyEvaluator());
 //        animator.start();
 
-            //--------------------------->9月10日ValueAnimator,ofObject()学习笔记
+        //--------------------------->9月10日ValueAnimator,ofObject()学习笔记
 //            ValueAnimator animator=ValueAnimator.ofObject(new FallingBallEvaluator(),
 //                    new Point(0,0),new Point(500,500));
 //            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -171,18 +194,18 @@ public class MainActivity extends AppCompatActivity {
 //            animator.setInterpolator(new AccelerateInterpolator());
 //            animator.start();
 
-            //-------------------------->9月10日ObjectAnimator学习demo笔记
+        //-------------------------->9月10日ObjectAnimator学习demo笔记
 //        ObjectAnimator animator=ObjectAnimator.ofFloat(tv,"scaleY",0,3,1);
 //        animator.setDuration(2000);
 //        animator.start();
 
-            //--------------------------->9月10日ObjectAnimator ofObject学习demo
+        //--------------------------->9月10日ObjectAnimator ofObject学习demo
 //            ObjectAnimator animator=ObjectAnimator.ofObject(ballimg,"fallingPos",new FallingBallEvaluator(),
 //                    new Point(0,0),new Point(500,500));
 //            animator.setDuration(2000);
 //            animator.start();
 
-            //--------------------------->9月10日ObjectAnimator ,AnimatorSet.学习demo
+        //--------------------------->9月10日ObjectAnimator ,AnimatorSet.学习demo
 //            ObjectAnimator tv1BgAnimator=ObjectAnimator.ofInt(tv1,"BackgroundColor"
 //                    ,0xffff00ff,0xffffff00,0xffff00ff);
 //            ObjectAnimator tv1TranslateY=ObjectAnimator.ofFloat(tv1,"translationY",0,300,0);
@@ -197,40 +220,56 @@ public class MainActivity extends AppCompatActivity {
 //            animatorSet.start();
 
 
-            //----------------------------------->9月11日keyframe学习demo笔记
-            Keyframe frame0=Keyframe.ofFloat(0f,0);
-            Keyframe frame1=Keyframe.ofFloat(0.1f,-20f);
-            Keyframe frame2=Keyframe.ofFloat(0.2f,20f);
-            Keyframe frame3=Keyframe.ofFloat(0.3f,-20f);
-            Keyframe frame4=Keyframe.ofFloat(0.4f,20f);
-            Keyframe frame5=Keyframe.ofFloat(0.5f,-20f);
-            Keyframe frame6=Keyframe.ofFloat(0.6f,20f);
-            Keyframe frame7=Keyframe.ofFloat(0.7f,-20f);
-            Keyframe frame8=Keyframe.ofFloat(0.8f,20f);
-            Keyframe frame9=Keyframe.ofFloat(0.9f,-20f);
-            Keyframe frame10=Keyframe.ofFloat(1,0);
+        //----------------------------------->9月11日keyframe学习demo笔记
+//            Keyframe frame0=Keyframe.ofFloat(0f,0);
+//            Keyframe frame1=Keyframe.ofFloat(0.1f,-20f);
+//            Keyframe frame2=Keyframe.ofFloat(0.2f,20f);
+//            Keyframe frame3=Keyframe.ofFloat(0.3f,-20f);
+//            Keyframe frame4=Keyframe.ofFloat(0.4f,20f);
+//            Keyframe frame5=Keyframe.ofFloat(0.5f,-20f);
+//            Keyframe frame6=Keyframe.ofFloat(0.6f,20f);
+//            Keyframe frame7=Keyframe.ofFloat(0.7f,-20f);
+//            Keyframe frame8=Keyframe.ofFloat(0.8f,20f);
+//            Keyframe frame9=Keyframe.ofFloat(0.9f,-20f);
+//            Keyframe frame10=Keyframe.ofFloat(1,0);
+//
+//            PropertyValuesHolder framHolder=PropertyValuesHolder.ofKeyframe("rotation",frame0,frame1,frame2,
+//                    frame3,frame4,frame5,frame6,frame7,frame8,frame9,frame10);
+//            //x轴上放大的关键帧
+//            Keyframe scaleXframe0=Keyframe.ofFloat(0f,1);
+//            Keyframe scaleXframe1=Keyframe.ofFloat(0.1f,1.1f);
+//            Keyframe scaleXframe9=Keyframe.ofFloat(0.9f,1.1f);
+//            Keyframe scaleXframe10=Keyframe.ofFloat(1,1);
+//
+//            PropertyValuesHolder framHolder2=PropertyValuesHolder.ofKeyframe("ScaleX",scaleXframe0
+//            ,scaleXframe1,scaleXframe9,scaleXframe10);
+//            //Y轴上放大的关键帧
+//            Keyframe scaleYframe0=Keyframe.ofFloat(0f,1);
+//            Keyframe scaleYframe1=Keyframe.ofFloat(0.1f,1.1f);
+//            Keyframe scaleYframe9=Keyframe.ofFloat(0.9f,1.1f);
+//            Keyframe scaleYframe10=Keyframe.ofFloat(1,1);
+//
+//            PropertyValuesHolder framHolder3=PropertyValuesHolder.ofKeyframe("ScaleY",scaleYframe0
+//                    ,scaleYframe1,scaleYframe9,scaleYframe10);
+//
+//            ObjectAnimator animator=ObjectAnimator.ofPropertyValuesHolder(phone,framHolder,framHolder2,framHolder3);
+//            animator.setDuration(1000);
+//            animator.start();
+    }
 
-            PropertyValuesHolder framHolder=PropertyValuesHolder.ofKeyframe("rotation",frame0,frame1,frame2,
-                    frame3,frame4,frame5,frame6,frame7,frame8,frame9,frame10);
-            //x轴上放大的关键帧
-            Keyframe scaleXframe0=Keyframe.ofFloat(0f,1);
-            Keyframe scaleXframe1=Keyframe.ofFloat(0.1f,1.1f);
-            Keyframe scaleXframe9=Keyframe.ofFloat(0.9f,1.1f);
-            Keyframe scaleXframe10=Keyframe.ofFloat(1,1);
+    private void addButtonView() {
+        i++;
+        Button button = new Button(this);
+        button.setText("button"+i);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        button.setLayoutParams(layoutParams);
+        linearLayoutContainer.addView(button, 0);
+    }
 
-            PropertyValuesHolder framHolder2=PropertyValuesHolder.ofKeyframe("ScaleX",scaleXframe0
-            ,scaleXframe1,scaleXframe9,scaleXframe10);
-            //Y轴上放大的关键帧
-            Keyframe scaleYframe0=Keyframe.ofFloat(0f,1);
-            Keyframe scaleYframe1=Keyframe.ofFloat(0.1f,1.1f);
-            Keyframe scaleYframe9=Keyframe.ofFloat(0.9f,1.1f);
-            Keyframe scaleYframe10=Keyframe.ofFloat(1,1);
-
-            PropertyValuesHolder framHolder3=PropertyValuesHolder.ofKeyframe("ScaleY",scaleYframe0
-                    ,scaleYframe1,scaleYframe9,scaleYframe10);
-
-            ObjectAnimator animator=ObjectAnimator.ofPropertyValuesHolder(phone,framHolder,framHolder2,framHolder3);
-            animator.setDuration(1000);
-            animator.start();
+    private void removeButtonView() {
+        if (i>0){
+            linearLayoutContainer.removeViewAt(0);
         }
+        i--;
+    }
 }
