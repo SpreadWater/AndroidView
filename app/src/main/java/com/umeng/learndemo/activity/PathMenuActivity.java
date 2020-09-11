@@ -1,4 +1,4 @@
-package com.umeng.learndemo;
+package com.umeng.learndemo.activity;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.umeng.learndemo.R;
 
 /**
  * @author zhangsan

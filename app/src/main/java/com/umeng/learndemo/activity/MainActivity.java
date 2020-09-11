@@ -1,4 +1,4 @@
-package com.umeng.learndemo;
+package com.umeng.learndemo.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -38,6 +38,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.umeng.learndemo.Evaluator.FallingBallEvaluator;
 import com.umeng.learndemo.Evaluator.MyEvaluator;
+import com.umeng.learndemo.R;
 import com.umeng.learndemo.interpolator.MyInterpolator;
 
 //9月8日动画学习demo
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 //    private ImageView phone;
     private int i;//记录添加的控件个数
     private LinearLayout linearLayoutContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,13 +59,13 @@ public class MainActivity extends AppCompatActivity {
 //        ballimg=(ImageView)findViewById(R.id.ball_img);
 //        phone=(ImageView)findViewById(R.id.img_phone);
         linearLayoutContainer = (LinearLayout) findViewById(R.id.linearlayoutcontainer);
-        LayoutTransition transition=new LayoutTransition();
+        LayoutTransition transition = new LayoutTransition();
         //入场动画，view在这个容器中出现时触发的动画
-        ObjectAnimator animIn=ObjectAnimator.ofFloat(null,"rotationY",0f,360f,0f);
-        transition.setAnimator(LayoutTransition.APPEARING,animIn);
+        ObjectAnimator animIn = ObjectAnimator.ofFloat(null, "rotationY", 0f, 360f, 0f);
+        transition.setAnimator(LayoutTransition.APPEARING, animIn);
         //消失动画，view在这个容器中消失时触发的动画
-        ObjectAnimator animOut=ObjectAnimator.ofFloat(null,"rotation",0f,90f,0f);
-        transition.setAnimator(LayoutTransition.DISAPPEARING,animOut);
+        ObjectAnimator animOut = ObjectAnimator.ofFloat(null, "rotation", 0f, 90f, 0f);
+        transition.setAnimator(LayoutTransition.DISAPPEARING, animOut);
 
         linearLayoutContainer.setLayoutTransition(transition);
         findViewById(R.id.add_btn).setOnClickListener(new View.OnClickListener() {
@@ -151,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     private void doAnimation() {
         //-------------------->9月9日Evalutaor，Interpolator学习demo
 
@@ -260,14 +263,14 @@ public class MainActivity extends AppCompatActivity {
     private void addButtonView() {
         i++;
         Button button = new Button(this);
-        button.setText("button"+i);
+        button.setText("button" + i);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         button.setLayoutParams(layoutParams);
         linearLayoutContainer.addView(button, 0);
     }
 
     private void removeButtonView() {
-        if (i>0){
+        if (i > 0) {
             linearLayoutContainer.removeViewAt(0);
         }
         i--;

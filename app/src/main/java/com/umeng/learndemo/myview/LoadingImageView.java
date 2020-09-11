@@ -1,11 +1,10 @@
-package com.umeng.learndemo.view;
+package com.umeng.learndemo.myview;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 

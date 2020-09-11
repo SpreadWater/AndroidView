@@ -8,7 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <Button
             android:id="@+id/add_btn"
             android:layout_width="wrap_content"
@@ -20,11 +19,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="删除控件" />
+
+
     </LinearLayout>
     <LinearLayout
         android:id="@+id/linearlayoutcontainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:animateLayoutChanges="true"/>
+        android:animateLayoutChanges="true">
+        <com.umeng.learndemo.myview.GetSegmentView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
 </LinearLayout>

@@ -1,13 +1,11 @@
-package com.umeng.learndemo.view;
+package com.umeng.learndemo.myview;
 
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import android.graphics.Region;
 import android.graphics.RegionIterator;
 import android.graphics.Typeface;

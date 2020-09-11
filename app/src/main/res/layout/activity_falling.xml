@@ -9,7 +9,7 @@
 <!--        android:layout_height="50dp"-->
 <!--        android:background="@drawable/circle"/>-->
 
-    <com.umeng.learndemo.view.FallingBallImageView
+    <com.umeng.learndemo.myview.FallingBallImageView
         android:id="@+id/ball_img"
         android:layout_width="50dp"
         android:layout_height="50dp"

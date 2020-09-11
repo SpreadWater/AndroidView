@@ -1,9 +1,8 @@
-package com.umeng.learndemo.view;
+package com.umeng.learndemo.myview;
 
 import android.content.Context;
 import android.graphics.Point;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 

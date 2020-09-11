@@ -1,11 +1,12 @@
-package com.umeng.learndemo;
+package com.umeng.learndemo.activity;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.umeng.learndemo.view.WaterWaveView;
+import com.umeng.learndemo.R;
+import com.umeng.learndemo.myview.WaterWaveView;
 
 /**
  * @author zhangsan

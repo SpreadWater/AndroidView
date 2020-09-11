@@ -1,4 +1,4 @@
-package com.umeng.learndemo;
+package com.umeng.learndemo.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +14,9 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
-public class CameraStretchDemo extends AppCompatActivity {
+import com.umeng.learndemo.R;
+
+public class CameraStretchActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

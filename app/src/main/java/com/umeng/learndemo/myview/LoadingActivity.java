@@ -1,4 +1,4 @@
-package com.umeng.learndemo.view;
+package com.umeng.learndemo.myview;
 
 import androidx.appcompat.app.AppCompatActivity;
 
