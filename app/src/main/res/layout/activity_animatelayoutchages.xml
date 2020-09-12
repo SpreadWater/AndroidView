@@ -29,6 +29,9 @@
         android:orientation="vertical"
         android:animateLayoutChanges="true">
         <com.umeng.learndemo.myview.GetSegmentView
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+        <com.umeng.learndemo.myview.AliPayView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
