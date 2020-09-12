@@ -9,6 +9,8 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.graphics.Point;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.AnimatedVectorDrawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -29,12 +31,14 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import com.umeng.learndemo.Evaluator.FallingBallEvaluator;
 import com.umeng.learndemo.Evaluator.MyEvaluator;
@@ -47,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
 //        private TextView tv2;
 //    private ImageView ballimg;
 //    private ImageView phone;
+    private ImageView iv;
     private int i;//记录添加的控件个数
     private LinearLayout linearLayoutContainer;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,13 +65,45 @@ public class MainActivity extends AppCompatActivity {
         linearLayoutContainer = (LinearLayout) findViewById(R.id.linearlayoutcontainer);
         LayoutTransition transition = new LayoutTransition();
         //入场动画，view在这个容器中出现时触发的动画
-        ObjectAnimator animIn = ObjectAnimator.ofFloat(null, "rotationY", 0f, 360f, 0f);
+        final ObjectAnimator animIn = ObjectAnimator.ofFloat(null, "rotationY", 0f, 360f, 0f);
         transition.setAnimator(LayoutTransition.APPEARING, animIn);
         //消失动画，view在这个容器中消失时触发的动画
         ObjectAnimator animOut = ObjectAnimator.ofFloat(null, "rotation", 0f, 90f, 0f);
         transition.setAnimator(LayoutTransition.DISAPPEARING, animOut);
 
         linearLayoutContainer.setLayoutTransition(transition);
+        iv=(ImageView)findViewById(R.id.anim_img);
+//        iv.setImageResource(R.drawable.svg_lines);
+        //------------------------------->9月12日动态设置Vector实现动画与Vector相结合
+
+//        AnimatedVectorDrawableCompat avc=AnimatedVectorDrawableCompat.create(MainActivity.this,
+//                R.drawable.line_animated_vector);
+//       iv.setImageDrawable(avc);
+//       ((Animatable)iv.getDrawable()).start();
+
+
+        //---------------------------------->9月12日动态设置Vector实现输入框的动画
+
+        //将焦点放在Imageview上
+        iv.setFocusable(true);
+        iv.setFocusableInTouchMode(true);
+        iv.requestFocus();
+        iv.requestFocusFromTouch();
+        EditText editText=(EditText)findViewById(R.id.edit);
+
+        //当Edit获取到焦点的时候开始动画
+        editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus){
+                    AnimatedVectorDrawableCompat avc=AnimatedVectorDrawableCompat.create(
+                            MainActivity.this,R.drawable.animated_vector_search
+                    );
+                    iv.setImageDrawable(avc);
+                    ((Animatable)iv.getDrawable()).start();
+                }
+            }
+        });
         findViewById(R.id.add_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
