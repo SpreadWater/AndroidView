@@ -9,16 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".myview.LoadingActivity"></activity>
-        <activity android:name=".activity.CameraStretchActivity"></activity>
-        <activity android:name=".activity.PathMenuActivity">
-        </activity>
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.SearchBarActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.PaintActivity">
+        </activity>
+        <activity android:name=".myview.LoadingActivity" />
+        <activity android:name=".activity.CameraStretchActivity" />
+        <activity android:name=".activity.PathMenuActivity" />
+        <activity android:name=".activity.MainActivity"></activity>
         <activity android:name=".activity.WaterViewActivity" />
     </application>
 

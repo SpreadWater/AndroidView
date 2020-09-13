@@ -5,4 +5,5 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="holo_purple">#ffaa66cc</color>
     <color name="holo_purple2">#FF6347</color>
+    <color name="map_search_text_color" >#16305C</color>
 </resources>
