@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Window;
 import android.widget.RelativeLayout;
-import com.umeng.learndemo.myview.SearchView;
+import com.umeng.learndemo.myview.spetember13.SearchView;
 
 import com.umeng.learndemo.R;
 import com.umeng.learndemo.adapter.SimpleAdapter;

@@ -13,7 +13,7 @@
         android:text="流量"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
-    <com.umeng.learndemo.myview.WaterWaveView
+    <com.umeng.learndemo.myview.spetember7.WaterWaveView
         android:id="@+id/waterview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

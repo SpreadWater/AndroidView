@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.umeng.learndemo.myview;
+package com.umeng.learndemo.myview.spetember7;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;

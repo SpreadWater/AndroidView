@@ -1,4 +1,4 @@
-package com.umeng.learndemo.myview;
+package com.umeng.learndemo.myview.spetember12;
 
 import android.content.Context;
 import android.graphics.Canvas;

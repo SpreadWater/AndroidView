@@ -28,10 +28,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:animateLayoutChanges="true">
-        <com.umeng.learndemo.myview.GetSegmentView
+        <com.umeng.learndemo.myview.spetember9.GetSegmentView
             android:layout_width="100dp"
             android:layout_height="80dp"/>
-        <com.umeng.learndemo.myview.AliPayView
+        <com.umeng.learndemo.myview.spetember12.AliPayView
             android:layout_width="100dp"
             android:layout_height="80dp"/>
       <FrameLayout

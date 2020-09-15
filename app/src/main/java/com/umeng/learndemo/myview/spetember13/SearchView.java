@@ -1,4 +1,4 @@
-package com.umeng.learndemo.myview;
+package com.umeng.learndemo.myview.spetember13;
 
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;

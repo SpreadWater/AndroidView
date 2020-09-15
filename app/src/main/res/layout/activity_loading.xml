@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
     android:orientation="vertical">
-<com.umeng.learndemo.myview.LoadingImageView
+<com.umeng.learndemo.myview.spetember9.LoadingImageView
     android:layout_width="50dp"
     android:layout_height="50dp"
     android:layout_marginTop="100dp"

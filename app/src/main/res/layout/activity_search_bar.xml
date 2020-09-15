@@ -19,7 +19,7 @@
         android:paddingLeft="15dp"
         android:paddingRight="15dp">
 
-        <com.umeng.learndemo.myview.SearchView
+        <com.umeng.learndemo.myview.spetember13.SearchView
             android:id="@+id/activity_main_searchview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
