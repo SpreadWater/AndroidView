@@ -34,6 +34,7 @@ class CustomCircleView extends View {
     private void  init(){
         //在裁剪的时候禁止硬件加速功能
         setLayerType(LAYER_TYPE_SOFTWARE,null);
+
         mbitmap= BitmapFactory.decodeResource(getResources(), R.drawable.ic_avatar);
         mpaint=new Paint();
         mpath=new Path();

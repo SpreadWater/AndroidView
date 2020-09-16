@@ -62,14 +62,17 @@ public class TelescopeView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (mBitmapBG == null) {
+            //创建一个空白的位图，位图的大小和控件的大小一样
             mBitmapBG = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
             Canvas canvasbg = new Canvas(mBitmapBG);
-            //将图片缩放到控件大小,以完全覆盖控件
+            //对背景图进行拉伸，画到这个空白的位图上
             canvasbg.drawBitmap(mBitmap, null, new Rect(0, 0, getWidth(), getHeight()), mPaint);
 
         }
         if (mDx != -1 && mDy != -1) {
+            //将新建的mBitmapBG作为BitmapShader设置给Paint
             mPaint.setShader(new BitmapShader(mBitmapBG, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT));
+            //画一个圆圈，把圆圈部分的图形显示出来
             canvas.drawCircle(mDx, mDy, 150, mPaint);
         }
     }
