@@ -23,7 +23,7 @@ import com.umeng.learndemo.R;
 public class ShadowLayerView extends View {
     private Paint mpaint=new Paint();
     private Bitmap mBitmap;
-    private Boolean mSetShadow;
+    private Boolean mSetShadow=false;
     public ShadowLayerView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         //禁止硬件加速

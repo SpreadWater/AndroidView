@@ -4,25 +4,36 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.umeng.learndemo.myview.spetember14.ShadowLayerView
-        android:id="@+id/shadowlayerview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+<!--    <com.umeng.learndemo.myview.spetember14.ShadowLayerView-->
+<!--        android:id="@+id/shadowlayerview"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content" />-->
 
-    <Button
-        android:id="@+id/clear_btn"
+<!--    <Button-->
+<!--        android:id="@+id/clear_btn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="clear shadow" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/show_btn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="show shadow" />-->
+
+<!--    <com.umeng.learndemo.myview.spetember15.BitmapShaderView-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_margin="20dp" />-->
+
+    <com.umeng.learndemo.myview.sptember16.ShimmerTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="clear shadow" />
-
-    <Button
-        android:id="@+id/show_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="show shadow" />
-    <com.umeng.learndemo.myview.spetember15.BitmapShaderView
         android:layout_margin="20dp"
-        android:layout_width="200dp"
-        android:layout_height="200dp"/>
+        android:text="红岩网校欢迎你"
+        android:textSize="24dp" />
+   <com.umeng.learndemo.myview.sptember16.RadialGradientView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
 
 </LinearLayout>
