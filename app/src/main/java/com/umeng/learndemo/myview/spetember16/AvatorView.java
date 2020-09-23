@@ -1,4 +1,4 @@
-package com.umeng.learndemo.myview.sptember16;
+package com.umeng.learndemo.myview.spetember16;
 
 import android.content.Context;
 import android.graphics.Bitmap;

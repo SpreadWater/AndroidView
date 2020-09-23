@@ -1,4 +1,4 @@
-package com.umeng.learndemo.myview.sptember16;
+package com.umeng.learndemo.myview.spetember16;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -8,7 +8,6 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Shader;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 

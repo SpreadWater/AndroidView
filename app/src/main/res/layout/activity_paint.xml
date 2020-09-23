@@ -26,14 +26,17 @@
 <!--        android:layout_height="200dp"-->
 <!--        android:layout_margin="20dp" />-->
 
-    <com.umeng.learndemo.myview.sptember16.ShimmerTextView
+<!--    <com.umeng.learndemo.myview.sptember16.ShimmerTextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="20dp"-->
+<!--        android:text="红岩网校欢迎你"-->
+<!--        android:textSize="24dp" />-->
+<!--   <com.umeng.learndemo.myview.sptember16.RadialGradientView-->
+<!--       android:layout_width="wrap_content"-->
+<!--       android:layout_height="wrap_content"/>-->
+    <com.umeng.learndemo.myview.spetember23.BitmapCanvasView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="红岩网校欢迎你"
-        android:textSize="24dp" />
-   <com.umeng.learndemo.myview.sptember16.RadialGradientView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
