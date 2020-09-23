@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.transition.Fade;
 import android.util.TypedValue;
 import android.view.Window;
 import android.widget.RelativeLayout;
@@ -26,6 +27,7 @@ public class SearchBarActivity extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_search_bar);
         initView();
+        getWindow().setEnterTransition(new Fade().setDuration(2000));
     }
 
     private void initView() {

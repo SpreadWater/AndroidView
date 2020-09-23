@@ -35,8 +35,12 @@
 <!--   <com.umeng.learndemo.myview.sptember16.RadialGradientView-->
 <!--       android:layout_width="wrap_content"-->
 <!--       android:layout_height="wrap_content"/>-->
-    <com.umeng.learndemo.myview.spetember23.BitmapCanvasView
+<!--    <com.umeng.learndemo.myview.spetember23.SaveLayerUseExample-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
+    <Button
+        android:id="@+id/btn_fade"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="wrap_content"
+        android:text="淡入淡出"/>
 </LinearLayout>
