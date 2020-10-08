@@ -1,56 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:attrstest="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-<!--    <com.umeng.learndemo.myview.spetember14.ShadowLayerView-->
-<!--        android:id="@+id/shadowlayerview"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content" />-->
+    <!--    <com.umeng.learndemo.myview.spetember14.ShadowLayerView-->
+    <!--        android:id="@+id/shadowlayerview"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content" />-->
 
-<!--    <Button-->
-<!--        android:id="@+id/clear_btn"-->
-<!--        android:layout_width="wrap_content"-->
+    <!--    <Button-->
+    <!--        android:id="@+id/clear_btn"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="clear shadow" />-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/show_btn"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="show shadow" />-->
+
+    <!--    <com.umeng.learndemo.myview.spetember15.BitmapShaderView-->
+    <!--        android:layout_width="200dp"-->
+    <!--        android:layout_height="200dp"-->
+    <!--        android:layout_margin="20dp" />-->
+
+    <!--    <com.umeng.learndemo.myview.sptember16.ShimmerTextView-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_margin="20dp"-->
+    <!--        android:text="红岩网校欢迎你"-->
+    <!--        android:textSize="24dp" />-->
+    <!--   <com.umeng.learndemo.myview.sptember16.RadialGradientView-->
+    <!--       android:layout_width="wrap_content"-->
+    <!--       android:layout_height="wrap_content"/>-->
+    <!--    <com.umeng.learndemo.myview.spetember23.SaveLayerUseExample-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"/>-->
+    <!--    <Button-->
+    <!--        android:id="@+id/btn_fade"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="淡入淡出"/>-->
+    <!--    <com.umeng.learndemo.myview.spetember24.RestoreToCountView-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"/>-->
+    <!--    <com.umeng.learndemo.myview.spetember24.MyTextView2-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        attrstest:headerHeight="300dp"-->
+    <!--        attrstest:headerVisibleHeight="100dp"-->
+    <!--        attrstest:age="young"/>-->
+
+
+<!--    <com.umeng.learndemo.myview.aug8.MyLinLayout-->
+<!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:text="clear shadow" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/show_btn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="show shadow" />-->
-
-<!--    <com.umeng.learndemo.myview.spetember15.BitmapShaderView-->
-<!--        android:layout_width="200dp"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:layout_margin="20dp" />-->
-
-<!--    <com.umeng.learndemo.myview.sptember16.ShimmerTextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_margin="20dp"-->
-<!--        android:text="红岩网校欢迎你"-->
-<!--        android:textSize="24dp" />-->
-<!--   <com.umeng.learndemo.myview.sptember16.RadialGradientView-->
-<!--       android:layout_width="wrap_content"-->
-<!--       android:layout_height="wrap_content"/>-->
-<!--    <com.umeng.learndemo.myview.spetember23.SaveLayerUseExample-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"/>-->
-<!--    <Button-->
-<!--        android:id="@+id/btn_fade"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="淡入淡出"/>-->
-<!--    <com.umeng.learndemo.myview.spetember24.RestoreToCountView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"/>-->
-    <com.umeng.learndemo.myview.spetember24.MyTextView2
+<!--        android:background="#ff00ff">-->
+<!--        <TextView-->
+<!--            android:text="第一个VIEW"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:background="#ff0000"/>-->
+<!--        <TextView-->
+<!--            android:text="第二个VIEW"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:background="#00ff00"/>-->
+<!--        <TextView-->
+<!--            android:text="第三个VIEW"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:background="#0000ff"/>-->
+<!--    </com.umeng.learndemo.myview.aug8.MyLinLayout>-->
+    <com.umeng.learndemo.myview.aug8.FlowLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        attrstest:headerHeight="300dp"
-        attrstest:headerVisibleHeight="100dp"
-        attrstest:age="young"/>
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/text_flag_01"
+            android:background="@drawable/flag_03"
+            android:text="Welcome"
+            android:textColor="@android:color/white"/>
+        <TextView
+            style="@style/text_flag_01"
+            android:background="@drawable/flag_03"
+            android:text="IT工程师"
+            android:textColor="@android:color/white"/>
+        <TextView
+            style="@style/text_flag_01"
+            android:background="@drawable/flag_03"
+            android:text="我真是可以的"
+            android:textColor="@android:color/white"/>
+        <TextView
+            style="@style/text_flag_01"
+            android:background="@drawable/flag_03"
+            android:text="你觉得呢"
+            android:textColor="@android:color/white"/>
+        <TextView
+            style="@style/text_flag_01"
+            android:background="@drawable/flag_03"
+            android:text="不要只知道挣钱"
+            android:textColor="@android:color/white"/>
+        <TextView
+            style="@style/text_flag_01"
+            android:background="@drawable/flag_03"
+            android:text="努力ing"
+            android:textColor="@android:color/white"/>
+        <TextView
+            style="@style/text_flag_01"
+            android:background="@drawable/flag_03"
+            android:text="I think i can"
+            android:textColor="@android:color/white"/>
+    </com.umeng.learndemo.myview.aug8.FlowLayout>
 </LinearLayout>
