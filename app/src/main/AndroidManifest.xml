@@ -9,15 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MiSportView">
-        </activity>
-        <activity android:name=".activity.SearchBarActivity">
-        </activity>
-        <activity android:name=".activity.PaintActivity">
+        <activity android:name=".myview.aug16.DemoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.MiSportView"></activity>
+        <activity android:name=".activity.SearchBarActivity"></activity>
+        <activity android:name=".activity.PaintActivity">
         </activity>
         <activity android:name=".activity.LoadingActivity" />
         <activity android:name=".activity.CameraStretchActivity" />
